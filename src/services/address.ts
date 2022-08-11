@@ -6,3 +6,9 @@ export const getAddresses = async (): Promise<IAddress[] | undefined>  => {
   
   return address;
 };
+
+export const create = async (address: IAddress): Promise<IAddress> => {
+  const data = await model.create(address);
+
+  return data;
+};
