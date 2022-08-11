@@ -8,6 +8,11 @@ const read = async (): Promise<IAddress[]> => {
   return addresses;
 };
 
+const write = async (address: IAddress[]): Promise<void> => {
+  await fs.writeFile('src/addresses.json', JSON.stringify(address));
+};
+
 export {
   read,
+  write,
 }
