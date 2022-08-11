@@ -12,3 +12,10 @@ export const getAddresses = async (_req: Request, res: Response) => {
     return res.status(StatusCode.NOT_FOUND).json({ message: 'Não há endereços cadastrados :(' });
   }
 };
+
+export const create = async (req: Request, res: Response) => {
+  const address: IAddress = req.body;
+  const result = await services.create(address);
+
+  return res.status(201).json(result);
+};
