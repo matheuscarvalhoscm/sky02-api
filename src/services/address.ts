@@ -12,3 +12,11 @@ export const create = async (address: IAddress): Promise<IAddress> => {
 
   return data;
 };
+
+export const update = async (cep: string, editedAddress: IAddress): Promise<IAddress> => {
+  const data = await model.update(cep, editedAddress);
+  
+  if (!data) throw ({ message: 'Endereço não encontrado!'});
+
+  return data;
+}
