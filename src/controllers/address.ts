@@ -31,3 +31,14 @@ export const update = async (req: Request, res: Response) => {
     return res.status(StatusCode.NOT_FOUND).json(error);
   }
 };
+
+export const deleteAddress = async (req: Request, res: Response) => {
+  try {
+    const { cep } = req.params;
+    await services.deleteAddress(cep);
+
+    return res.status(StatusCode.OK).json({ message: 'Endereço deletado com sucesso!' });
+  } catch (error) {
+    return res.status(StatusCode.NOT_FOUND).json(error);
+  }
+};
