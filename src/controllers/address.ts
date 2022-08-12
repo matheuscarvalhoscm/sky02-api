@@ -17,7 +17,7 @@ export const create = async (req: Request, res: Response) => {
   const address: IAddress = req.body;
   const result = await services.create(address);
 
-  return res.status(201).json(result);
+  return res.status(StatusCode.CREATED).json(result);
 };
 
 export const update = async (req: Request, res: Response) => {
