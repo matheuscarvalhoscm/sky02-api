@@ -19,3 +19,15 @@ export const create = async (req: Request, res: Response) => {
 
   return res.status(201).json(result);
 };
+
+export const update = async (req: Request, res: Response) => {
+  try {
+    const editedAddress: IAddress = req.body;
+    const { cep } = req.params;
+    const result = await services.update(cep, editedAddress);
+  
+    return res.status(StatusCode.OK).json(result);
+  } catch (error) {
+    return res.status(StatusCode.NOT_FOUND).json(error);
+  }
+};
