@@ -19,4 +19,8 @@ export const update = async (cep: string, editedAddress: IAddress): Promise<IAdd
   if (!data) throw ({ message: 'Endereço não encontrado!'});
 
   return data;
-}
+};
+
+export const deleteAddress = async (cep: string): Promise<void> => {
+  await model.deleteAddress(cep);
+};
