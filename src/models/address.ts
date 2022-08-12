@@ -23,3 +23,13 @@ export const update = async (cep: string, editedAddress: IAddress): Promise<IAdd
   
   return addresses[index];
 };
+
+export const deleteAddress = async (cep: string): Promise<void> => {
+  const addresses = await read();
+  const index = addresses.findIndex((address) => address.cep === cep);
+
+  if (index === -1) throw ({ message: 'Endereço não encontrado!' });
+
+  addresses.splice(index, 1);
+  await write(addresses);
+};
