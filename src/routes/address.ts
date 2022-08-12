@@ -5,5 +5,6 @@ const router = Router();
 
 router.get('/', controller.getAddresses);
 router.post('/', controller.create);
+router.put('/:cep', controller.update);
 
 export default router;
