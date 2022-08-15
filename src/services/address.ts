@@ -1,5 +1,14 @@
 import IAddress from '../interfaces/Address';
 import * as model from '../models/address';
+import Joi from 'joi';
+
+const addressSchema = Joi.object({
+  cep: Joi.required(),
+  street: Joi.string().required(),
+  district: Joi.string().required(),
+  city: Joi.string().required(),
+  state: Joi.string().required(),
+});
 
 export const getAddresses = async (): Promise<IAddress[] | undefined>  => {
   const address: IAddress[] = await model.getAddresses();
