@@ -1,4 +1,4 @@
-<img src="../sky02-ui/src/assets/sk-logo-transparent-white.png" alt="Logo SKY02" align="right" width="150px">
+<img src="src/assets/sk-logo-transparent-white.png" alt="Logo SKY02" align="right" width="150px">
 
 # SKY02 - Your Address Assistant
 
