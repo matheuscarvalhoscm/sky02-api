@@ -17,15 +17,21 @@ export const getAddresses = async (): Promise<IAddress[] | undefined>  => {
 };
 
 export const create = async (address: IAddress): Promise<IAddress> => {
+  const { error } = addressSchema.validate({address});
+
+  if (error) throw error;
+
   const data = await model.create(address);
 
   return data;
 };
 
 export const update = async (cep: string, editedAddress: IAddress): Promise<IAddress> => {
+  const { error } = addressSchema.validate(editedAddress);
   const data = await model.update(cep, editedAddress);
   
   if (!data) throw ({ message: 'Endereço não encontrado!'});
+  else if (error) throw error;
 
   return data;
 };
