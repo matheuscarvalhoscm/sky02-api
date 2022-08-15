@@ -17,10 +17,6 @@ export const getAddresses = async (): Promise<IAddress[] | undefined>  => {
 };
 
 export const create = async (address: IAddress): Promise<IAddress> => {
-  const { error } = addressSchema.validate({address});
-
-  if (error) throw error;
-
   const data = await model.create(address);
 
   return data;
